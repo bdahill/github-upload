@@ -1,0 +1,74 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf420
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fswiss\fcharset77 Helvetica-Bold;\f2\fnil\fcharset77 LucidaGrande;
+\f3\fswiss\fcharset77 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww20620\viewh17320\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Maximum 59 episodes\
+\
+This creates a simple podcast from:\
+1. list of MP3 file names.\
+2. a list of episode titles\
+3. an "argsfile" which names:\
+	1. title of podcast		$title\
+	2. podcast link		$link\
+	3. podcast description	$description\
+	4. author			$author\
+	5. mp3 link dir		$link_dir
+\f1\b \
+\
+TO RUN:\
+
+\f0\b0 1. create the necessary custom files (see #1 below)\
+2. call the script\
+	perl NAMEOFSCRIPT.pl\
+3. a file "podcast.xml" is created in the 
+\f2 xml_output directory\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 \
+THE SCRIPT WORKS AS FOLLOWS:\
+1. reads in custom info from an "argsfile"\
+2. writes a header\
+3. iteratively reads a list of file names & mp3 names and writes them up as items\
+3. writes a footer\
+\
+______________________________________________________________________\
+\
+I. Need to create the following files:
+\f0\b0 \
+1. custom_files/
+\f2 args file.rtf\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 	1. title of podcast		$title\
+	2. podcast link		$link\
+	3. podcast description	$description\
+	4. author			$author\
+	5. mp3 link dir		$link_dir
+\f1\b \
+
+\f3\i\b0    This can be automated later as an I/O into script.\
+
+\f0\i0 \
+2. custom_files/
+\f2 mp3s.txt
+\f0 \
+In the directory where the MP3s live do the following and then copy it here to this directory:	\
+	 ls > mp3s.txt\
+\
+ One MP3 file name per line.\
+\
+3. custom_files/
+\f2 titles.txt\
+
+\f0   For each chapter you need to write out a text file of the name of each episode. This is what shows up under "Name" for each episode in the podcast\
+   One link title per line.\
+   This can't be easily automated. It just needs to be done.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 4. 
+\f0\b0 You \ul might\ulnone  want to change the date in the <pubDate> entry in the .pl file. It is set up to have each episode be 1 second earlier.\
+}
